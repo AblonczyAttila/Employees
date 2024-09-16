@@ -58,6 +58,7 @@ namespace Employees
 
             PrintHighestEarners(people);
             PrintRetirementSoon(people);
+            CountHighEarners(people);
             Console.ReadKey();
         }
         static void PrintHighestEarners(List<Person> people)
@@ -83,5 +84,11 @@ namespace Employees
                 Console.WriteLine($"Név: {person.Name}, Kor: {person.Age}");
             }
         }
+        static void CountHighEarners(List<Person> people)
+        {
+            int highEarnersCount = people.Count(p => p.Salary > 50000);
+            Console.WriteLine($"\nAzoknak a száma, akik 50 000 forint felett keresnek: {highEarnersCount}");
+        }
+
     }
 }
