@@ -57,7 +57,7 @@ namespace Employees
             }
 
             PrintHighestEarners(people);
-
+            PrintRetirementSoon(people);
             Console.ReadKey();
         }
         static void PrintHighestEarners(List<Person> people)
@@ -71,6 +71,17 @@ namespace Employees
                 Console.WriteLine($"Azonosító: {person.Id}, Név: {person.Name}");
             }
             
+        }
+
+        static void PrintRetirementSoon(List<Person> people)
+        {
+            Console.WriteLine("\nNyugdíj előtt álló dolgozók (10 éven belül):");
+            var retirementSoon = people.Where(p => 65 - p.Age <= 10);
+
+            foreach (var person in retirementSoon)
+            {
+                Console.WriteLine($"Név: {person.Name}, Kor: {person.Age}");
+            }
         }
     }
 }
