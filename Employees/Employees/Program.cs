@@ -56,6 +56,21 @@ namespace Employees
                 Console.WriteLine(person);
             }
 
+            PrintHighestEarners(people);
+
+            Console.ReadKey();
+        }
+        static void PrintHighestEarners(List<Person> people)
+        {
+            int maxSalary = people.Max(p => p.Salary);
+            var highestEarners = people.Where(p => p.Salary == maxSalary);
+
+            Console.WriteLine("Legjobban kereső dolgozó:");
+            foreach (var person in highestEarners)
+            {
+                Console.WriteLine($"Azonosító: {person.Id}, Név: {person.Name}");
+            }
+            
         }
     }
 }
